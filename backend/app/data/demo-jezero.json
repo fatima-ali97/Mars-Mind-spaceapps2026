@@ -1,0 +1,16 @@
+{
+  "id": "demo-jezero",
+  "name": "Jezero area (synthetic demo)",
+  "bounds": {
+    "west": 77.3,
+    "south": 18.35,
+    "east": 77.4,
+    "north": 18.45
+  },
+  "width": 40,
+  "height": 40,
+  "resolution_m_approx": 150.0,
+  "source": "Synthetic test fixture generated locally; NOT NASA measurements",
+  "source_type": "synthetic_demo",
+  "warning": "Illustrative surface only. Switch to a real NASA MOLA DEM before claiming real terrain analysis."
+}
