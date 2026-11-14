@@ -66,7 +66,7 @@ export const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({
   const handleExecuteAction = (
     label: string,
     actionType: string,
-    payload?: Record<string, unknown>
+    _payload?: Record<string, unknown>
   ) => {
     const actionPrompt = `Execute command: ${label} [${actionType}]`;
     onSendMessage(actionPrompt);
