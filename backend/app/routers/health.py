@@ -11,6 +11,6 @@ async def health_check():
     return HealthResponse(
         status="operational",
         service=settings.PROJECT_NAME,
-        version=settings.VERSION
+        version=settings.VERSION,
+        ai_provider=settings.AI_PROVIDER
     )
-

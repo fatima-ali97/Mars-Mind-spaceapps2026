@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     """Application settings and environment configurations."""
     PROJECT_NAME: str = "Mars Mind API"
-    VERSION: str = "0.1.0"
+    VERSION: str = "0.2.0"
     API_PREFIX: str = "/api"
     
     # Server settings
@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     CHATBOT_NAME: str = "ARES (Autonomous Resource & Exploration Specialist)"
     AI_PROVIDER: str = "mock"  # "mock", "gemini", "openai"
     AI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-1.5-flash"
+    OPENAI_MODEL: str = "gpt-4o-mini"
 
     class Config:
         env_file = ".env"
@@ -34,4 +36,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-

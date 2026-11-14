@@ -56,6 +56,7 @@ Mars-Mind-spaceapps2026/
 │   ├── .env.example
 │   └── README.md
 │
+├── CHATBOT_FEATURE.md        # Comprehensive Chatbot feature specifications & architecture
 ├── DEVELOPMENT.md            # Detailed developer guide & workflow reference
 └── README.md                 # Primary project documentation
 ```
@@ -73,6 +74,7 @@ Mars-Mind-spaceapps2026/
 ### 3. Onboard AI Chatbot Feature (`ARES`)
 - **Backend Service (`chatbot_service.py`)**: Knowledge engine handling Mars science, atmospheric extraction (MOXIE), radiation defense, life support recycling, and communication delays. Includes fallback mock engine and modular extension points for Gemini, OpenAI, or local LLMs.
 - **Frontend Interface (`ChatbotWidget.tsx`)**: Available as both a dedicated full-screen tab and a floating slide-out drawer accessible from any dashboard screen. Features typing indicators, multi-turn dialogue history, quick suggestion chips, and error resilience.
+- **Detailed Specifications**: See the complete [CHATBOT_FEATURE.md](file:///c:/Users/fatima/Downloads/nasa-2026/Mars-Mind-spaceapps2026/CHATBOT_FEATURE.md) for full architecture diagrams, SSE streaming specs, voice STT/TTS capabilities, and telemetry schema.
 
 ---
 
