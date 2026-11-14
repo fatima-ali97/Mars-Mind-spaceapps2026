@@ -1,17 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23e63946'/><circle cx='38' cy='32' r='8' fill='%23b71c1c'/><circle cx='65' cy='62' r='14' fill='%23b71c1c'/><circle cx='32' cy='68' r='7' fill='%23b71c1c'/></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mars Mind | NASA Space Apps 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#090b0d" />
+<title>MarsMind</title>
+<link rel="stylesheet" href="/src/cinematic/cinematic.css">
+<style>
+  .ares-shortcut {
+    position: fixed;
+    right: max(20px, env(safe-area-inset-right));
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    z-index: 75;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid #a16b57;
+    border-radius: 50%;
+    background: #211916;
+    color: #ffc8ac;
+    box-shadow: 0 4px 18px #0006;
+    transition: background-color .2s, color .2s;
+  }
+  .ares-shortcut:hover { background: #503126; color: #ffe2d0; }
+  .ares-shortcut:focus-visible { outline: 2px solid #ffc8ac; outline-offset: 3px; }
+  .ares-shortcut-icon {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-radius: 6px;
+    transform: translateY(-1px);
+  }
+  .ares-shortcut-icon::after {
+    position: absolute;
+    bottom: -4px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    border: solid currentColor;
+    border-width: 0 0 2px 2px;
+    background: #211916;
+    content: "";
+    transform: skewY(-30deg);
+    transition: background-color .2s;
+  }
+  .ares-shortcut:hover .ares-shortcut-icon::after { background: #503126; }
+</style>
+</head>
+<body>
+<div id="pointerGlow" class="pointer-glow" aria-hidden="true"></div>
+<header class="header"><a href="#home" class="logo" aria-label="MarsMind home"><span class="logo-mark" aria-hidden="true"></span>MarsMind<span class="accent">.</span></a><nav class="nav" id="nav"><a href="#home">Overview</a><a href="#journey">The mission</a><a href="#approach">How it works</a><a href="#explore">Mars Explorer</a><a href="#traverse">Route Planner</a><a href="#ares">ARES Assistant</a></nav><div class="header-right"><button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="nav" aria-label="Open navigation">☰</button></div></header>
+<main>
+<section class="hero" id="home"><canvas class="stars" id="stars" aria-hidden="true"></canvas><div class="hero-grid"></div><div class="grain"></div><div class="planet-stage" id="planetStage"><div class="orbit a"></div><div class="orbit b"></div><div class="orbit c"></div><div class="satellite-path"><span class="satellite"></span></div><canvas class="planet-canvas" id="planetCanvas" width="560" height="560" role="img" aria-label="Animated rotating illustrated planet Mars"></canvas><div class="planet-detail">MARS / SOL 001</div></div>
+<div class="hero-content"><h1 class="hero-title"><span class="line-word"><span>See beyond</span></span><span class="line-word"><span>the <em class="serif">surface.</em></span></span><span class="line-word"><span>Explore Mars.</span></span></h1><p class="hero-desc">Explore the terrain. Understand the risks. Ask better questions. A new way to experience our nearest planetary frontier.</p><div class="hero-actions"><a class="btn btn-primary" href="#journey">Begin the journey <span aria-hidden="true">↗</span></a><a class="btn-link" href="#explore"><span class="play-ring">↗</span> Explore the map</a></div></div>
+<div class="hero-bottom"><div class="hero-stats"><div class="hero-stat"><span>DESTINATION</span><b>Mars · Sol 001</b></div><div class="hero-stat"><span>EXPLORATION MODE</span><b>Terrain intelligence</b></div><div class="hero-stat"><span>BUILT FOR</span><b>Space Apps 2026</b></div></div></div></section>
 
+<section class="mission-section" id="journey" aria-label="What MarsMind does">
+  <div class="mission-inner" id="approach">
+    <div class="mission-intro">
+      <div class="mission-head reveal">
+        <div class="sec-kicker">01 / THE MISSION</div>
+        <h2>Beyond the view.<br><span class="serif accent">Into the details.</span></h2>
+      </div>
+      <div class="mission-copy reveal">
+        <div class="mission-copy-tag">EXPLORE WITH PURPOSE</div>
+        <p>Mars has countless stories written into its surface. MarsMind makes them easier to explore — from choosing a region to understanding the terrain and the questions behind it.</p>
+        <a class="mission-link" href="#explore">Explore the terrain <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="terrain-scene reveal" aria-label="Illustrative Martian terrain texture">
+      <div class="terrain-image"></div>
+      <div class="terrain-tint"></div>
+      <div class="scene-top"><span>SURFACE / VISUAL STUDY</span><span>MARS MIND — 001</span></div>
+      <div class="scene-bottom"><span><b>Look closer.</b><small>A new perspective on the landscapes ahead.</small></span><span class="scene-marker">▦ <span>ILLUSTRATIVE TERRAIN</span></span></div>
+    </div>
+    <div class="mission-steps" aria-label="How the experience works">
+      <article class="mission-step reveal"><span class="mission-step-number">01 / DISCOVER</span><h3>Choose a region.</h3><p>Explore the terrain of Jezero Crater.</p></article>
+      <article class="mission-step reveal"><span class="mission-step-number">02 / INVESTIGATE</span><h3>Read the terrain.</h3><p>Switch between terrain, elevation and indicative hazard views.</p></article>
+      <article class="mission-step reveal"><span class="mission-step-number">03 / UNDERSTAND</span><h3>Ask ARES.</h3><p>Turn observations into clearer questions, with source and uncertainty in mind.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section explore" id="explore"><div class="section-heading reveal"><div><div class="sec-kicker">02 / INTERACTIVE EXPLORER</div><h2>The planet,<br/><span class="serif accent">up close.</span></h2></div><p>Choose a region, change the terrain layer, and analyze a location.</p></div><div class="explore-layout reveal" id="terrainMap"><div class="panel"><div class="map-top"><div><h3>Surface explorer</h3><p><span id="terrainSource">Connecting to terrain service…</span></p></div><div class="tabs" role="group" aria-label="Terrain map layer"><button class="tab" data-layer="terrain" aria-pressed="true">Terrain</button><button class="tab" data-layer="elevation" aria-pressed="false">Elevation</button><button class="tab" data-layer="hazards" aria-pressed="false">Hazards</button></div></div><div class="map-wrap" id="mapWrap"><div id="trekImagery" aria-hidden="true"></div><canvas id="mapCanvas" width="820" height="510" tabindex="0" aria-label="Terrain grid. Click a location or use the arrow keys to select a cell."></canvas><div class="map-grid"></div><div class="map-scan"></div><div class="map-top-label mono" id="layerName">SHADED TERRAIN</div><div class="map-coords mono" id="mapCoords">—</div></div><div class="map-bottom"><span><strong>●</strong> Elevation and hazard estimates · exploratory use</span><span id="layerLegend">SHADED TERRAIN</span><a id="trekCredit" href="https://trek.nasa.gov/mars/" target="_blank" rel="noopener noreferrer" hidden>NASA Mars Trek</a></div></div><aside class="panel inspector"><div class="inspector-title label">REGION INSPECTOR</div><h3>Choose a region</h3><div class="inspector-sub">Select a point on the terrain map.</div><div class="locs" id="regionChoices" role="group" aria-label="Mars regions"></div><div class="site-name" id="siteName">Mars terrain</div><div class="site-coord" id="siteCoords">—</div><div class="measure"><div><span>Elevation</span><b id="elevation">—</b></div><div><span>Slope</span><b id="slope">—</b></div></div><div class="measure"><div><span>Relative risk</span><b id="risk" style="font-size:20px;color:#c2dec8">—</b></div><div><span>Data mode</span><b id="terrainMode" style="font-size:20px">—</b></div></div><p class="note" id="terrainWarning">Terrain estimates depend on the selected dataset.</p><div class="sample-flag">● TERRAIN ANALYSIS</div><button class="btn btn-primary inspector-btn" id="scanBtn">Analyze selected area <span>↗</span></button><div class="analysis-note" id="analysisResult" role="status" aria-live="polite"></div>
+<div class="map-actions">
+  <button type="button" id="setStart" disabled>Set as start</button>
+  <button type="button" id="setFinish" disabled>Set as destination</button>
+  <button type="button" id="askPoint" disabled>Explain this point in ARES</button><p id="routePointHint" class="point-hint" aria-live="polite"></p>
+</div></aside></div>
+<div class="traverse" id="traverse">
+  <header class="traverse-head">
+    <h3>Plan a <em class="serif">traverse.</em></h3>
+    <p>Select a point on the map and set it as your start. Select another point for your destination.</p>
+  </header>
+  <div class="traverse-endpoints">
+    <dl><div><dt>Start</dt><dd id="routeStart">Choose a point</dd></div><div><dt>Destination</dt><dd id="routeFinish">Choose a point</dd></div></dl>
+    <button type="button" id="resetRoute" disabled>Clear points</button>
+  </div>
+  <p id="routeStatus" class="route-status" role="status">Waiting for terrain.</p>
+  <div id="routeResults" hidden>
+    <fieldset class="route-options"><legend>Compare routes</legend>
+      <label><input type="radio" name="route" value="lowerRisk" checked><span><strong>Lower modeled risk</strong><small id="lowerRiskStats"></small></span></label>
+      <label><input type="radio" name="route" value="shortest"><span><strong>Shortest</strong><small id="shortestStats"></small></span></label>
+    </fieldset>
+    <div class="rover-sim">
+      <div><h4>Rover simulation</h4><p>Distance, time, energy and risk estimates use the loaded grid and an illustrative rover model.</p></div>
+      <canvas id="simMap" width="820" height="510" role="img" aria-label="Route preview with moving rover"></canvas>
+      <dl class="sim-metrics">
+        <div><dt>Distance</dt><dd id="simDistance">—</dd></div>
+        <div><dt>Est. drive time</dt><dd id="simTime">—</dd></div>
+        <div><dt>Est. energy</dt><dd id="simEnergy">—</dd></div>
+        <div><dt>Peak risk</dt><dd id="simRisk">—</dd></div>
+      </dl>
+      <div class="sim-track"><label for="simProgress">Drive progress</label><input id="simProgress" type="range" min="0" max="100" value="0" step="1"><output id="simPercent" for="simProgress">0%</output></div>
+      <div class="sim-actions"><button type="button" id="playDrive" class="btn btn-primary">Play drive</button><a href="#terrainMap">View on map</a></div>
+    </div>
+  </div>
+</div></section>
+<section class="section ares" id="ares"><div class="ares-grid"><div class="ares-copy reveal"><div class="sec-kicker">03 / ARES ASSISTANT</div><h2>Meet<br/><em class="serif">ARES.</em></h2><p>Ask about Mars or send a point from the terrain map to see its elevation, slope and modeled risk.</p></div><div class="chat reveal"><div class="chat-head"><div class="chat-id"><span class="logo-mark" aria-hidden="true"></span><div><b>ARES Assistant</b><small>Autonomous Resource & Exploration Specialist</small></div></div><div class="chat-online" id="chatStatus">Connecting to ARES…</div></div><div class="chat-area" id="chatArea" aria-live="polite"><div class="bubble">Ask about Mars or send a point from the map for a terrain explanation.</div></div><div class="chips"><button class="chip" data-prompt="What is special about Jezero Crater?">Why Jezero?</button><button class="chip" data-prompt="What makes terrain hazardous?">Terrain hazards</button><button class="chip" data-prompt="Are these NASA measurements?">About the data</button></div><form class="chat-form" id="chatForm"><input id="chatInput" autocomplete="off" maxlength="250" placeholder="Ask ARES about Mars..." aria-label="Ask ARES"/><button type="submit" aria-label="Send message">↑</button></form></div></div></section>
+<section class="closing" id="next"><h2 class="reveal">Explore <em class="serif">Jezero Crater.</em></h2><p class="reveal">Choose a point on the map to see its elevation, slope, and estimated risk.</p><a class="btn btn-primary reveal" href="#explore">Launch Mars Explorer <span aria-hidden="true">↗</span></a></section>
+</main><footer class="footer"><div><strong>MarsMind.</strong><span style="margin-left:16px">NASA Space Apps 2026 · Interactive design concept</span></div><div>Reference data platform: <a href="https://trek.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA Mars Trek ↗</a> · Terrain provenance appears in the explorer</div></footer>
+<script type="module" src="/src/cinematic/main.js"></script>
+<a class="ares-shortcut" href="#ares" aria-label="Go to ARES chat" title="ARES chat"><span class="ares-shortcut-icon" aria-hidden="true"></span></a>
+</body>
+</html>

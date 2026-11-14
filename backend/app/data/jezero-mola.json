@@ -1,0 +1,16 @@
+{
+  "id": "jezero-mola",
+  "name": "Jezero Crater \u00b7 MOLA",
+  "bounds": {
+    "west": 77.25,
+    "south": 18.1484375,
+    "east": 77.75,
+    "north": 18.6484375
+  },
+  "width": 64,
+  "height": 64,
+  "resolution_m_approx": 463,
+  "source": "NASA Mars Global Surveyor MOLA \u00b7 PDS MEGT44N000HB \u00b7 128 pixels per degree",
+  "source_type": "nasa_mola_dem",
+  "warning": "Regional elevation grid. Individual rocks and fine surface hazards are below its resolution."
+}

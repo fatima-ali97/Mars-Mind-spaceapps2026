@@ -1,3 +1,11 @@
+# Cinematic frontend
+
+Copy the contents of this folder into the existing project's `frontend/` folder. Leave `backend/` and any local `.env` files in place. Start FastAPI on port 8000, then run `npm ci` and `npm run dev` from `frontend/` and open http://localhost:5173.
+
+`index.html` loads the cinematic frontend through `src/cinematic/main.js` and `src/cinematic/cinematic.css`. The previous React source remains in `src/` for reference. Vite proxies the cinematic frontend's `/api` calls to FastAPI. The terrain and ARES modes depend on the backend's installed datasets and provider settings.
+
+---
+
 # Mars Mind - Frontend (React + TypeScript + Vite)
 
 Interactive user interface for the Mars Mind planetary platform, featuring real-time telemetry dashboards and the **ARES AI Chatbot Specialist**.
