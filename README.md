@@ -126,7 +126,7 @@ copy .env.example .env
 cp .env.example .env
 
 # 4. Start the FastAPI development server
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Backend will now be live:

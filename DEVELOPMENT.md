@@ -52,7 +52,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Start backend server
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 > Verify: Open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) in your browser. You should see the interactive Swagger UI.
 
